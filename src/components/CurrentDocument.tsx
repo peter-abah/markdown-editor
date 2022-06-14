@@ -1,4 +1,5 @@
 import { useDocuments } from '@/contexts/DocumentsContext';
+import DocumentPreview from './DocumentPreview';
 
 const CurrentDocument = () => {
   const { currentDoc } = useDocuments();
@@ -14,9 +15,7 @@ const CurrentDocument = () => {
         <p>{currentDoc.updated_at.toString()}</p>
       </header>
  
-      <article>
-        <p>{currentDoc.content}</p>
-      </article>
+      <DocumentPreview content={currentDoc.content} />
     </section>
    )
 };
