@@ -1,11 +1,17 @@
-import React, { useState, useContext, createContext, } from 'react';
+import React, {
+  useState,
+  useContext,
+  createContext
+} from 'react';
+
+import { nanoid } from 'nanoid';
 import { Document } from '@/types';
 import data from './data.json';
 
 export interface DocumentsContextInterface {
   docs: Document[];
   currentDoc: Document | null;
-  addDoc: (doc: Document) => void;
+  addDoc: (name: string) => void;
   updateDoc: (doc: Document) => void;
   deleteDoc: (doc: Document) => void;
   selectDoc: (doc: Document) => void;
@@ -32,8 +38,26 @@ const DocumentsProvider = ({ children }: Props) => {
   // To keep track of document displayed on screen
   const [currentDoc, setCurrentDoc] = useState<Document | null>(null);
   
-  const addDoc = (doc: Document) => {
+  // Generates empty document
+  const newDoc = (name: string) => {
+    if (name === "") return null;
+    
+    return {
+      name,
+      id: nanoid(),
+      content: '',
+      created_at: new Date(),
+      updated_at: new Date(),
+    };
+  };
+  
+  // Add document to state
+  const addDoc = (name: string) => {
+    let doc = newDoc(name);
+    if (doc == null) return;
+ 
     setDocs([...docs, doc]);
+    return doc;
   };
   
   // To show document on screen 
