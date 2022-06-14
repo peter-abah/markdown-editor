@@ -1,10 +1,15 @@
+import React from 'react';
+import DocumentsProvider from '@/contexts/DocumentsContext'
+
 import './index.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello markdown</h1>
-    </div>
+    <DocumentsProvider>
+      <div className="App">
+        <h1>Hello markdown</h1>
+      </div>
+    </DocumentsProvider>
   );
 }
 
