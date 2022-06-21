@@ -3,6 +3,9 @@ import DocumentsProvider from '@/contexts/DocumentsContext'
 
 // Components
 import Modal from 'react-modal';
+import { ErrorBoundary } from 'react-error-boundary';
+
+import ErrorFallback from '@/components/ErrorFallback';
 import Menu from '@/components/Menu';
 import CurrentDocument from '@/components/CurrentDocument';
 
@@ -12,10 +15,14 @@ Modal.setAppElement("#root");
 
 function App() {
   return (
-    <DocumentsProvider>
-      <Menu />
-      <CurrentDocument />
-    </DocumentsProvider>
+    <ErrorBoundary
+      FallbackComponent={ErrorFallback}
+    >
+      <DocumentsProvider>
+        <Menu />
+        <CurrentDocument />
+      </DocumentsProvider>
+    </ErrorBoundary>
   );
 }
 
