@@ -1,8 +1,12 @@
 import { useState, useEffect, ChangeEvent } from 'react';
+import { useBoolean } from 'usehooks-ts';
 import { useDocuments } from '@/contexts/DocumentsContext';
-import DocumentPreview from './DocumentPreview';
+import Preview from '../Preview';
+import Header from '../Header';
 
-const CurrentDocument = () => {
+const Content = () => {
+  const { value: showPreview, toggle } = useBoolean(true);
+  
   const { currentDoc, updateDoc } = useDocuments();
   const [content, setContent] = useState(currentDoc?.content || '');
   
@@ -19,26 +23,33 @@ const CurrentDocument = () => {
     setContent(e.currentTarget.value);
   };
   
+  const updateName = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === '') return;
+
+    updateDoc({...currentDoc, name: e.target.value});
+  };
+  
   const onSave = () => {
     updateDoc({ ...currentDoc, content });
   }
 
   return (
-    <section>
-      <header>
-        <h2>{currentDoc.name}</h2>
-        <p>{currentDoc.updated_at.toString()}</p>
-      </header>
-      
+    <main>
+      <Header
+        doc={currentDoc}
+        handleSave={onSave}
+        handleDelete={() => alert("Implement")}
+        updateName={updateName}
+      />
+ 
       <textarea
         value={content}
         onChange={updateContent}
       />
-      
-      <button type='button' onClick={onSave}>Save</button>
-      <DocumentPreview content={content} />
-    </section>
-   )
+ 
+      {showPreview && <Preview content={content} /> }
+    </main>
+  )
 };
 
-export default CurrentDocument;
+export default Content;
