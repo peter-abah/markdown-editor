@@ -36,8 +36,8 @@ const DocumentsProvider = ({ children }: Props) => {
   const [docs, setDocs] = useState<Document[]>(defaultDocs);
 
   // To keep track of document displayed on screen
-  const [currentDoc, setCurrentDoc] = useState<Document | null>(null);
-  
+  const [currentDocId, setCurrentDocId] = useState<string | null>(null);
+
   // Generates empty document
   const newDoc = (name: string) => {
     if (name === "") return null;
@@ -62,7 +62,7 @@ const DocumentsProvider = ({ children }: Props) => {
   
   // To show document on screen 
   const selectDoc = (doc: Document) => {
-    setCurrentDoc(doc);
+    setCurrentDocId(doc.id);
   };
   
   const deleteDoc = (doc: Document) => {
@@ -76,6 +76,7 @@ const DocumentsProvider = ({ children }: Props) => {
     setDocs([...filtered, doc]);
   };
   
+  const currentDoc = docs.find(({id}) => id === currentDocId) || null;
   const value = { 
     docs,
     currentDoc,
