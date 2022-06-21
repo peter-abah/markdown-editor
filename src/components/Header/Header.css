@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: #2c2d31;
+}
+
+.header__container {
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+  padding: .5rem 1rem;
+}
+
+.header input {
+  max-width: 10rem;
+  padding: .25rem;
+  margin-right: auto;
+  background-color: inherit;
+}
+
+.header input:focus, .header input:focus-visible {
+  border-bottom: 1px solid #fff;
+  outline: none;
+}
+
+.menu-btn {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  background-color: #35383f;
+}
+
+.menu-btn:hover {
+  background-color: var(--color-orange);
+}
