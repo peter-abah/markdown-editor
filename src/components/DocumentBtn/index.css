@@ -1,6 +1,7 @@
 .doc-btn button {
   display: flex;
   flex-direction: column;
+  width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
 }

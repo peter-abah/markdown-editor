@@ -1,5 +1,13 @@
+.documents {
+  overflow-y: auto;
+}
+
 .documents-title {
   margin-bottom: 1rem;
   font-size: .875rem;
   color: #aaa;
+}
+
+.doc-btns {
+  padding: 1.5rem 0;
 }

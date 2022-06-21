@@ -11,13 +11,13 @@ const Documents = () => {
   const { docs, selectDoc } = useDocuments();
 
   return (
-    <section>
+    <section className="documents">
       <h2 className='documents-title'>MY DOCUMENTS</h2>
       <AccentButton
         onClick={toggleForm}
       >+ New Document</AccentButton>
       
-      <ul>
+      <ul className="doc-btns">
         {docs.map((doc) => (
           <DocumentBtn
             key={doc.id}
