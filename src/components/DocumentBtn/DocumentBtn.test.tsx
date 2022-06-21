@@ -2,7 +2,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import {render, fireEvent, waitFor, screen} from '@testing-library/react';
 
-import DocumentBtn from '.';
+import DocumentBtn from './DocumentBtn';
 
 const doc = {
   id: 'first',
