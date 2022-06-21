@@ -1,6 +1,10 @@
 import { useBoolean } from 'usehooks-ts';
 import { useDocuments } from '@/contexts/DocumentsContext';
-import DocumentForm from './DocumentForm';
+import DocumentForm from '../DocumentForm';
+import AccentButton from '../AccentButton';
+import DocumentBtn from '../DocumentBtn';
+
+import './index.css';
 
 const Documents = () => {
   const { value: isFormOpen, toggle: toggleForm } = useBoolean(false);
@@ -8,16 +12,18 @@ const Documents = () => {
 
   return (
     <section>
-      <h2>MY DOCUMENTS</h2>
-      <button onClick={toggleForm}>New Document</button>
+      <h2 className='documents-title'>MY DOCUMENTS</h2>
+      <AccentButton
+        onClick={toggleForm}
+      >+ New Document</AccentButton>
       
       <ul>
         {docs.map((doc) => (
-          <li key={doc.id}>
-            <button
-              onClick={() => selectDoc(doc)}
-            >{doc.name}</button> 
-          </li>
+          <DocumentBtn
+            key={doc.id}
+            doc={doc}
+            onClick={() => selectDoc(doc)}
+          />
         ))}
       </ul>
       

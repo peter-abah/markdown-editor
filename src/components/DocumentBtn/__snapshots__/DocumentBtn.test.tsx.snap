@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders correctly 1`] = `
+<div>
+  <li
+    class="doc-btn"
+  >
+    <button>
+      <span
+        class="doc-btn__date"
+      >
+        June 21, 2022
+      </span>
+      <span
+        class="doc-btn__name"
+      >
+        render
+      </span>
+    </button>
+  </li>
+</div>
+`;

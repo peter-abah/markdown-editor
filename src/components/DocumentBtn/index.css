@@ -1,0 +1,19 @@
+.doc-btn button {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.doc-btn__date {
+  font-weight: 400;
+  color: #aaa;
+}
+
+.doc-btn__name: {
+  color: var(--color-orange);
+}
+
+.doc-btn:last {
+  margin-bottom: 0;
+}
