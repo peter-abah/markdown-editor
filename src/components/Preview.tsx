@@ -3,10 +3,10 @@ import ReactMarkdown from 'react-markdown';
 interface Props {
   content: string;
 };
-const DocumentPreview = ({ content }: Props) => {
+const Preview = ({ content }: Props) => {
   return (
     <ReactMarkdown>{content}</ReactMarkdown>
   );
 };
 
-export default DocumentPreview;
+export default Preview;
