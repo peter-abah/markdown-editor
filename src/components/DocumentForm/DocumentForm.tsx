@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useDocuments } from '@/contexts/DocumentsContext';
 
-import Modal from 'react-modal';
+import Modal from '../Modal';
+import './DocumentForm.css';
 
 interface FormData {
   docName: string;
@@ -34,13 +35,15 @@ const DocumentForm = ({ isOpen, closeForm }: Props) => {
       isOpen={isOpen}
       onRequestClose={_closeForm}
     >
-      <h2>Add Document</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <h2 className='modal-title'>Add Document</h2>
+      <form className='doc-form' onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor='doc-input'>Document Name</label>
         <input
+          id='doc-input'
           {...register('docName', { required: true })}
         />
-        <button type='submit'>Save</button>
-        <button type='button' onClick={_closeForm}>Close</button>
+ 
+        <button className='modal-btn' type='submit'>+ Create</button>
       </form>
     </Modal>
    )

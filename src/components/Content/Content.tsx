@@ -10,7 +10,7 @@ import DeleteModal from '../DeleteModal';
 import './Content.css';
 
 const Content = () => {
-  const { value: isModalOpen, toggle: toggleModal } = useBoolean(false);
+  const { value: isModalOpen, toggle: _toggleModal } = useBoolean(false);
   const { value: showPreview, toggle } = useBoolean(true);
   const { isMenuOpen } = useAppContext();
   const { currentDoc, updateDoc, deleteDoc } = useDocuments();
@@ -38,6 +38,12 @@ const Content = () => {
     updateDoc({ ...currentDoc, content });
   }
   
+  // Confirm current document is not null before opening modal
+  const toggleModal = () => {
+    if (currentDoc == null) return;
+    
+    _toggleModal();
+  }
   const handleDelete = () => {
     if (currentDoc == null) return;
 
@@ -65,6 +71,7 @@ const Content = () => {
       {showPreview && <Preview content={content} /> }
 
       <DeleteModal
+        doc={currentDoc}
         onClose={toggleModal}
         onDelete={handleDelete}
         isOpen={isModalOpen}

@@ -23,6 +23,7 @@ const Documents = () => {
     <section className="documents">
       <h2 className='documents-title'>MY DOCUMENTS</h2>
       <AccentButton
+        className='w-full'
         onClick={toggleForm}
       >+ New Document</AccentButton>
       

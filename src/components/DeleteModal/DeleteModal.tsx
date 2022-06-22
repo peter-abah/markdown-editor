@@ -1,25 +1,27 @@
-import Modal from 'react-modal';
+import Modal from '../Modal';
+import { Document } from '@/types';
 
 interface Props {
+  doc: Document | null;
   isOpen: boolean;
   onClose: () => void;
   onDelete: () => void;
 }
 
 const DeleteModal = (props: Props) => {
-  const { isOpen, onClose, onDelete } = props;
+  const { doc, isOpen, onClose, onDelete } = props;
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onClose}
     >
-      <h2>Delete this document?</h2>
-      <p>
-        Are you sure you want to delete the ‘welcome.md’
+      <h2 className="modal-title">Delete this document?</h2>
+      <p className='mb-4'>
+        Are you sure you want to delete the {doc?.name}
         document and its contents? This action cannot be 
         reversed.
       </p>
-      <button onClick={onDelete}>Confirm and Delete</button>
+      <button className='modal-btn' onClick={onDelete}>Confirm and Delete</button>
     </Modal>
   );
 };
