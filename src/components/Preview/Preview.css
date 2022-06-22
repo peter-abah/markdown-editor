@@ -1,0 +1,12 @@
+.preview {
+  display: flex;
+  flex: 1 1;
+  overflow-y: hidden;
+  flex-direction: column;
+}
+
+.markdown {
+  flex: 1 1;
+  padding: 1rem;
+  overflow-y: auto;
+}

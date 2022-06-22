@@ -5,13 +5,14 @@ import { useAppContext } from '@/contexts/AppContext';
 
 import clsx from 'clsx'
 import Preview from '../Preview';
+import Editor from '../Editor';
 import Header from '../Header';
 import DeleteModal from '../DeleteModal';
 import './Content.css';
 
 const Content = () => {
   const { value: isModalOpen, toggle: _toggleModal } = useBoolean(false);
-  const { value: showPreview, toggle } = useBoolean(true);
+  const { value: showPreview, toggle: toggleView } = useBoolean(false);
   const { isMenuOpen } = useAppContext();
   const { currentDoc, updateDoc, deleteDoc } = useDocuments();
   const [content, setContent] = useState(currentDoc?.content || '');
@@ -60,15 +61,20 @@ const Content = () => {
         handleDelete={toggleModal}
         updateName={updateName}
       />
- 
-      {currentDoc &&
-        <textarea
+
+
+      {showPreview ? 
+        <Preview
+          content={content}
+          isPreviewOpen={showPreview}
+          toggleView={toggleView}
+        /> :
+        <Editor
+          toggleView={toggleView}
           value={content}
           onChange={updateContent}
         />
       }
-
-      {showPreview && <Preview content={content} /> }
 
       <DeleteModal
         doc={currentDoc}

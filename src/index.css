@@ -5,3 +5,12 @@
 :root {
   --color-orange: #e56643;
 }
+
+/** For header of editor and preview **/
+.markdown-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1e1f23;
+  color: #bbb;
+  padding: 1rem;
+}

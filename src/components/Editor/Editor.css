@@ -1,0 +1,22 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.editor textarea {
+  flex-grow: 1;
+  width: 100%;
+  padding: 1rem;
+}
+
+.editor textarea:focus {
+  /** Allow outline to show in high contrast mode **/
+  outline: 2px transparent solid;
+}
+
+@media and (min-width: 64rem) {
+  .editor button {
+    display: hidden;
+  }
+}
