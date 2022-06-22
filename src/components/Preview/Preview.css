@@ -3,10 +3,119 @@
   flex: 1 1;
   overflow-y: hidden;
   flex-direction: column;
+  background-color: var(--content-bg);
+  color: var(--content-text);
 }
 
 .markdown {
   flex: 1 1;
   padding: 1rem;
   overflow-y: auto;
+  font-family: 'Roboto Slab', serif;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+.markdown h1 {
+  font-size: 2rem;
+  line-height: 1.3125;
+}
+
+.markdown h2 {
+  font-size: 1.75rem;
+  line-height: 1.1;
+  font-weight: 300;
+}
+
+.markdown h3 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.markdown h4 {
+  font-size: 1.25rem;
+  line-height: 1.85;
+}
+
+.markdown h5 {
+  font-size: 1rem;
+  line-height: 1.3125;
+}
+
+.markdown h6 {
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+.markdown p {
+  font-size: .875rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.markdown li {
+  line-height: 1.7;
+}
+
+.markdown ul, .markdown ol {
+  padding: 0 1rem;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.markdown ol {
+  list-style-type: decimal;
+}
+
+.markdown ul li::before {
+  content: "\2022";
+  color: var(--c-orange);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.markdown blockquote {
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-radius: .5rem;
+  border-left: 1rem solid var(--c-orange);
+  background-color: var(--code-bg);
+}
+
+.markdown blockquote p {
+  font-size: .875rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--code-text);
+}
+
+.markdown code {
+  font-size: .75rem;
+  color: var(--code-text);
+  @apply sm:text-sm;
+}
+
+.markdown pre {
+  padding: .75rem;
+  border-radius: .5rem;
+  margin-bottom: 1.25rem;
+  background-color: var(--code-bg);
+}
+
+.markdown pre p {
+  font-size: .875rem;
+  color: var(--code-text);
+}
+
+.markdown a {
+  text-decoration: underline;
 }
