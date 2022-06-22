@@ -5,7 +5,7 @@
 .documents-title {
   margin-bottom: 1rem;
   font-size: .875rem;
-  color: #aaa;
+  color: var(--c-light-gray);
 }
 
 .doc-btns {

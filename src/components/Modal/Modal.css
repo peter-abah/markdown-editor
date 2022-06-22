@@ -1,5 +1,5 @@
 .modal {
-  background-color: #1e1e1e;
+  background-color: var(--c-dark-gray-1);
   color: #fff;
   border-radius: .5rem;
   padding: 1.2rem;
@@ -15,7 +15,7 @@
   bottom: 0;
   display: grid;
   place-items: center;
-  background-color: #1e1e1e88;
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .modal-title {
@@ -25,7 +25,7 @@
 }
 
 .modal-btn {
-  background-color: var(--color-orange);
+  background-color: var(--c-orange);
   padding: .5rem 1rem;
   text-align: center;
   border-radius: .5rem;

@@ -3,14 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --color-orange: #e56643;
+  --c-orange: #e46643;
+  --c-light-orange: #f39765;
+  --c-black: #15161a;
+  --c-dark-gray-1: #1e1f23;
+  --c-dark-gray-2: #2c2d31;
+  --c-dark-gray-3: #35383f;
+  --c-dark-gray-4: #7c8187;
+  --c-light-gray: #c1c4cb;
+  --c-almost-white: #f5f5f5;
+  
+  --content-bg: #fff;
+  --content-text: var(--c-dark-gray-1);
+  --code-bg: var(--c-almost-white);
+  --code-text: var(--c-dark-gray-3);
+  --markdown-p: var(--c-dark-gray-4);
+  --markdown-h: var(--c-dark-gray-3);
+}
+
+:root.theme-dark {
+  --content-bg: var(--c-black);
+  --content-text: var(--c-light-gray);
+  --code-bg: var(--c-dark-gray-3);
+  --code-text: var(--c-dark-gray-4);
+  --markdown-p: var(--c-light-gray);
+  --markdown-h: #fff;
+}
+
+.body {
+  font-family: Roboto, sans-serif;
 }
 
 /** For header of editor and preview **/
 .markdown-header {
   display: flex;
   justify-content: space-between;
-  background-color: #1e1f23;
-  color: #bbb;
+  background-color: var(--almost-white);
+  color: var(--c-dark-gray-4);
   padding: 1rem;
+}
+
+.root.theme-dark .markdown-header {
+  background-color: var(--c-dark-gray-1);
+  color: #fff;
 }

@@ -8,11 +8,11 @@
 
 .doc-btn__date {
   font-weight: 400;
-  color: #aaa;
+  color: var(--c-light-gray);
 }
 
 .doc-btn__name: {
-  color: var(--color-orange);
+  color: var(--c-orange);
 }
 
 .doc-btn:last {

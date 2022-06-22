@@ -3,7 +3,7 @@
   padding: .5rem 1rem;
   margin-bottom: .75rem;
   border-radius: .5rem;
-  background-color: #333;
+  background-color: var(--c-dark-gray-3);
 }
 
 .doc-form label {
