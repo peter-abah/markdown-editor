@@ -6,12 +6,14 @@ import { useAppContext } from '@/contexts/AppContext';
 import clsx from 'clsx'
 import Preview from '../Preview';
 import Header from '../Header';
+import DeleteModal from '../DeleteModal';
 import './Content.css';
 
 const Content = () => {
+  const { value: isModalOpen, toggle: toggleModal } = useBoolean(false);
   const { value: showPreview, toggle } = useBoolean(true);
   const { isMenuOpen } = useAppContext();
-  const { currentDoc, updateDoc } = useDocuments();
+  const { currentDoc, updateDoc, deleteDoc } = useDocuments();
   const [content, setContent] = useState(currentDoc?.content || '');
   
   // Change content when currentDoc changes
@@ -36,13 +38,20 @@ const Content = () => {
     updateDoc({ ...currentDoc, content });
   }
   
+  const handleDelete = () => {
+    if (currentDoc == null) return;
+
+    deleteDoc(currentDoc);
+    toggleModal();
+  }
+  
   const className = clsx('content', isMenuOpen && 'content--menu-open');
   return (
     <main className={className}>
       <Header
         doc={currentDoc}
         handleSave={onSave}
-        handleDelete={() => alert("Implement")}
+        handleDelete={toggleModal}
         updateName={updateName}
       />
  
@@ -54,6 +63,12 @@ const Content = () => {
       }
 
       {showPreview && <Preview content={content} /> }
+
+      <DeleteModal
+        onClose={toggleModal}
+        onDelete={handleDelete}
+        isOpen={isModalOpen}
+      />
     </main>
   )
 };

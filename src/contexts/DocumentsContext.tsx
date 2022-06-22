@@ -36,7 +36,8 @@ const DocumentsProvider = ({ children }: Props) => {
   const [docs, setDocs] = useState<Document[]>(defaultDocs);
 
   // To keep track of document displayed on screen
-  const [currentDocId, setCurrentDocId] = useState<string | null>(null);
+  const currentId = docs[0]?.id || null;
+  const [currentDocId, setCurrentDocId] = useState<string | null>(currentId);
 
   // Generates empty document
   const newDoc = (name: string) => {
