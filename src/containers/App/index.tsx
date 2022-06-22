@@ -6,8 +6,7 @@ import AppContextProvider from '@/contexts/AppContext';
 import Modal from 'react-modal';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from '@/components/ErrorFallback';
-import Menu from '@/components/Menu';
-import Content from '@/components/Content';
+import Main from '../Main';
 
 // React modal needs to know the root element of
 // the app
@@ -20,8 +19,7 @@ function App() {
     >
       <AppContextProvider>
         <DocumentsProvider>
-          <Menu />
-          <Content />
+          <Main />
         </DocumentsProvider>
       </AppContextProvider>
     </ErrorBoundary>

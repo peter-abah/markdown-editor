@@ -16,7 +16,7 @@ interface Props {
   handleSave: () => void;
   handleDelete: () => void;
   updateName: (e: ChangeEvent<HTMLInputElement>) => void;
-  doc: Document;
+  doc: Document | null;
 }
 
 const Header = (props: Props) => {
@@ -33,14 +33,19 @@ const Header = (props: Props) => {
         <MenuIcon className="text-2xl" />
       </button>
       <div className='header__container'>
-        <input value={doc.name} onChange={updateName} />
-        <button onClick={handleDelete}>
-          <DeleteIcon className='text-xl' />
-        </button>
+        {doc && 
+          <input value={doc.name} onChange={updateName} />
+        }
  
-        <AccentBtn onClick={handleSave}>
-          <SaveIcon className='text-xl' />
-        </AccentBtn>
+        <div className="header__btns">
+          <button onClick={handleDelete}>
+            <DeleteIcon className='text-xl' />
+          </button>
+    
+          <AccentBtn onClick={handleSave}>
+            <SaveIcon className='text-xl' />
+          </AccentBtn>
+        </div>
       </div>
     </header>
   )

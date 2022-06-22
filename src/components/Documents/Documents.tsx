@@ -1,14 +1,23 @@
 import { useBoolean } from 'usehooks-ts';
 import { useDocuments } from '@/contexts/DocumentsContext';
+import { useAppContext } from '@/contexts/AppContext';
+
 import DocumentForm from '../DocumentForm';
 import AccentButton from '../AccentButton';
 import DocumentBtn from '../DocumentBtn';
+import {Document } from '@/types';
 
 import './Documents.css';
 
 const Documents = () => {
   const { value: isFormOpen, toggle: toggleForm } = useBoolean(false);
   const { docs, selectDoc } = useDocuments();
+  const { setMenu } = useAppContext();
+  // Close menu after selecting doc
+  const _selectDoc = (doc: Document) => {
+    selectDoc(doc);
+    setMenu(false);
+  }
 
   return (
     <section className="documents">
@@ -22,7 +31,7 @@ const Documents = () => {
           <DocumentBtn
             key={doc.id}
             doc={doc}
-            onClick={() => selectDoc(doc)}
+            onClick={() => _selectDoc(doc)}
           />
         ))}
       </ul>

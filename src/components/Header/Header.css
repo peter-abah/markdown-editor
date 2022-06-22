@@ -15,7 +15,6 @@
 .header input {
   max-width: 10rem;
   padding: .25rem;
-  margin-right: auto;
   background-color: inherit;
 }
 
@@ -34,4 +33,10 @@
 
 .menu-btn:hover {
   background-color: var(--color-orange);
+}
+
+.header__btns {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
 }

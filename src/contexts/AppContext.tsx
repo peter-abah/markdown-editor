@@ -6,8 +6,9 @@ import React, {
 import { useBoolean } from 'usehooks-ts';
 
 export interface AppContextInterface {
-  isMenuOpen: Boolean;
+  isMenuOpen: boolean;
   toggleMenu: () => void;
+  setMenu: (val: boolean) => void;
 };
 
 export const AppContext = createContext<AppContextInterface | null>(null);
@@ -17,10 +18,14 @@ interface Props {
 };
 
 const AppContextProvider = ({ children }: Props) => {
-  const { value: isMenuOpen, toggle: toggleMenu } = useBoolean();
+  const {
+    value: isMenuOpen,
+    toggle: toggleMenu,
+    setValue: setMenu
+  } = useBoolean(false);
   
   const value = { 
-    isMenuOpen, toggleMenu
+    isMenuOpen, toggleMenu, setMenu
   };
   
   return (

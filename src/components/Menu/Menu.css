@@ -1,9 +1,16 @@
 .menu {
-  max-width: 15rem;
+  position: fixed;
+  top: 0;
+  left: -15.625rem;
+  width: 15.625rem;
   height: 100vh;
   padding: 1.5rem;
   color: #fff;
   background-color: #1e1e1e;
+}
+
+.menu--open {
+  left: 0;
 }
 
 .menu-title {
