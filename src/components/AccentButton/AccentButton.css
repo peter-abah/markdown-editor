@@ -4,3 +4,7 @@
   background-color: var(--c-orange);
   color: #fff;
 }
+
+.accent-btn:hover {
+  background-color: var(--c-light-orange);
+}

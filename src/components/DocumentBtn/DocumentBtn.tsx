@@ -1,17 +1,23 @@
 import React from 'react';
+import clsx from 'clsx';
 import { Document } from '@/types';
-import { format } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 import './DocumentBtn.css';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   doc: Document;
   onClick: () => void;
+  isActive?: boolean;
 };
-const DocumentBtn = ({doc, ...btnProps}: Props) => {
+const DocumentBtn = ({doc, isActive, ...btnProps}: Props) => {
+  const formattedDate = format(parseISO(doc.updated_at), 'MMMM d, yyyy');
   return (
-    <li className="doc-btn">
-      <button {...btnProps}>
-        <span className="doc-btn__date">{format(doc.updated_at, 'MMMM d, yyyy')}</span>
+    <li >
+      <button
+        className={clsx("doc-btn", isActive && 'active')}
+        {...btnProps}
+      >
+        <span className="doc-btn__date">{formattedDate}</span>
         <span className="doc-btn__name">{doc.name}</span>
       </button>
     </li>

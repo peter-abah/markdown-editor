@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  transition: transform 300ms ease-out;
 }
 
-.content--menu-open {
+.content.content--menu-open {
   position: fixed;
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  transform: translateX(15.625rem);
+  transform: translate3d(250px, 0, 0);
 }

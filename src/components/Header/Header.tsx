@@ -22,7 +22,7 @@ interface Props {
 const Header = (props: Props) => {
   const { isMenuOpen, toggleMenu } = useAppContext();
   const { doc, handleSave, handleDelete, updateName } = props;
-  
+
   const MenuIcon = isMenuOpen ? CloseIcon : OpenIcon;
   return (
     <header className="header">
@@ -38,7 +38,7 @@ const Header = (props: Props) => {
         }
  
         <div className="header__btns">
-          <button onClick={handleDelete}>
+          <button className='header-btn' onClick={handleDelete}>
             <DeleteIcon className='text-xl' />
           </button>
     

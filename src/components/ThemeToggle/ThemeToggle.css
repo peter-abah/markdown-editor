@@ -1,6 +1,7 @@
 .theme-toggle-wrapper {
   display: flex;
   gap: .5rem;
+  margin-top: auto;
   align-items: center;
 }
 

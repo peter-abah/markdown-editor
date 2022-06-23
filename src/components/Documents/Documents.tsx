@@ -11,7 +11,7 @@ import './Documents.css';
 
 const Documents = () => {
   const { value: isFormOpen, toggle: toggleForm } = useBoolean(false);
-  const { docs, selectDoc } = useDocuments();
+  const { docs, selectDoc, currentDoc } = useDocuments();
   const { setMenu } = useAppContext();
   // Close menu after selecting doc
   const _selectDoc = (doc: Document) => {
@@ -33,6 +33,7 @@ const Documents = () => {
             key={doc.id}
             doc={doc}
             onClick={() => _selectDoc(doc)}
+            isActive={currentDoc?.id === doc.id}
           />
         ))}
       </ul>

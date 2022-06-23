@@ -6,7 +6,7 @@ import React, {
 
 import { nanoid } from 'nanoid';
 import { Document } from '@/types';
-import data from './data.json';
+import defaultDocs from './data.json';
 
 export interface DocumentsContextInterface {
   docs: Document[];
@@ -18,15 +18,6 @@ export interface DocumentsContextInterface {
 };
 
 export const DocumentsContext = createContext<DocumentsContextInterface | null>(null);
-
-// converts date strings to date objects in data
-const defaultDocs = data.map((doc) => {
-  return {
-    ...doc,
-    created_at: new Date(doc.created_at),
-    updated_at: new Date(doc.updated_at),
-  }
-});
 
 interface Props {
   children: React.ReactNode;
@@ -42,13 +33,13 @@ const DocumentsProvider = ({ children }: Props) => {
   // Generates empty document
   const newDoc = (name: string) => {
     if (name === "") return null;
-    
+    const dateISO = new Date().toISOString();
     return {
       name,
       id: nanoid(),
       content: '',
-      created_at: new Date(),
-      updated_at: new Date(),
+      created_at: dateISO,
+      updated_at: dateISO,
     };
   };
   
@@ -74,6 +65,8 @@ const DocumentsProvider = ({ children }: Props) => {
   const updateDoc = (doc: Document) => {
     // Remove doc with former data before adding the new data
     const filtered = docs.filter(({ id }) => id !== doc.id);
+    
+    doc = { ...doc, updated_at: new Date().toISOString() };
     setDocs([...filtered, doc]);
   };
   

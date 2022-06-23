@@ -32,6 +32,7 @@ body.theme-dark {
 
 .body {
   font-family: Roboto, sans-serif;
+  overflow: hidden;
 }
 
 /** For header of editor and preview **/

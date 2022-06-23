@@ -8,8 +8,8 @@ const doc = {
   id: 'first',
   name: 'render',
   content: '',
-  created_at: new Date(),
-  updated_at: new Date(),
+  created_at: '1970-01-01',
+  updated_at: '1970-01-01',
 };
 
 test('it renders correctly', () => {
@@ -23,25 +23,17 @@ test('it renders correctly', () => {
 });
 
 test('it renders with document name and date', () => {
-  // Using epoch date as date (Jan 1 1970) for updated at since
-  // That is what should be displayed
-  const docWithEpochDate = {
-    ...doc,
-    created_t: new Date(),
-    updated_at: new Date(0),
-  };
-  
   const formattedDate = "January 1, 1970"
   
   const { getByRole } = render(
     <DocumentBtn
-      doc={docWithEpochDate}
+      doc={doc}
       onClick={() => null}
     />
   );
   
   const btn = getByRole('button');
-  expect(btn).toHaveTextContent(docWithEpochDate.name);
+  expect(btn).toHaveTextContent(doc.name);
   expect(btn).toHaveTextContent(formattedDate);
 });
 

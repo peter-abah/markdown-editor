@@ -32,12 +32,22 @@
   background-color: var(--c-dark-gray-3);
 }
 
-.menu-btn:hover {
-  background-color: var(--color-orange);
-}
-
 .header__btns {
   margin-left: auto;
   display: flex;
+  
   gap: 1rem;
+}
+
+.header-btn {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 1rem;
+}
+
+.header-btn:hover {
+  background-color: var(--c-dark-gray-3);
 }
