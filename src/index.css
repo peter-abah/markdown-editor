@@ -21,11 +21,11 @@
   --markdown-h: var(--c-dark-gray-3);
 }
 
-:root.theme-dark {
+body.theme-dark {
   --content-bg: var(--c-black);
   --content-text: var(--c-light-gray);
   --code-bg: var(--c-dark-gray-3);
-  --code-text: var(--c-dark-gray-4);
+  --code-text: var(--c-light-gray);
   --markdown-p: var(--c-light-gray);
   --markdown-h: #fff;
 }
@@ -38,12 +38,13 @@
 .markdown-header {
   display: flex;
   justify-content: space-between;
-  background-color: var(--almost-white);
+  background-color: var(--c-almost-white);
   color: var(--c-dark-gray-4);
   padding: 1rem;
 }
 
-.root.theme-dark .markdown-header {
+.theme-dark .markdown-header {
   background-color: var(--c-dark-gray-1);
+  color: var(--c-light-gray);
   color: #fff;
 }

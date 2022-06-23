@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: var(--content-bg);
-  color: var(--content-text);
 }
 
 .editor textarea {
@@ -11,6 +9,8 @@
   width: 100%;
   padding: 1rem;
   font-family: 'Roboto Mono', monospace;
+  background-color: var(--content-bg);
+  color: var(--content-text);
 }
 
 .editor textarea:focus {
