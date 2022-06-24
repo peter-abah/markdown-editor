@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   transition: transform 300ms ease-out;
+  background-color: var(--c-dark-gray-2);
 }
 
 .content.content--menu-open {

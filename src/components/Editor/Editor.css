@@ -1,7 +1,10 @@
 .editor {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  width: 100%;
+  border-color: var(--c-dark-gray-2);
+  
+  @apply md:border-r-2 md:w-1/2;
 }
 
 .editor textarea {

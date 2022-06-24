@@ -62,19 +62,21 @@ const Content = () => {
         updateName={updateName}
       />
 
-
-      {showPreview ? 
+      <div className='flex overflow-y-auto grow'>
+        {!showPreview && 
+          <Editor
+            toggleView={toggleView}
+            value={content}
+            onChange={updateContent}
+          />
+        }
+        <div className='separator' />
         <Preview
           content={content}
-          isPreviewOpen={showPreview}
+          showView={showPreview}
           toggleView={toggleView}
-        /> :
-        <Editor
-          toggleView={toggleView}
-          value={content}
-          onChange={updateContent}
-        />
-      }
+        /> 
+      </div>
 
       <DeleteModal
         doc={currentDoc}

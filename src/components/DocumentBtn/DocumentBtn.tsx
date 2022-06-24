@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Document } from '@/types';
+import { MdOutlineDescription as FileIcon } from 'react-icons/md';
 import { parseISO, format } from 'date-fns';
 import './DocumentBtn.css';
 
@@ -17,8 +18,11 @@ const DocumentBtn = ({doc, isActive, ...btnProps}: Props) => {
         className={clsx("doc-btn", isActive && 'active')}
         {...btnProps}
       >
-        <span className="doc-btn__date">{formattedDate}</span>
-        <span className="doc-btn__name">{doc.name}</span>
+        <FileIcon className='file-icon mr-2' />
+        <div className='flex flex-col'>
+          <span className="doc-btn__date">{formattedDate}</span>
+          <span className="doc-btn__name">{doc.name}</span>
+        </div>
       </button>
     </li>
   )

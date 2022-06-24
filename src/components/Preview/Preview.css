@@ -1,12 +1,17 @@
 .preview {
-  display: flex;
+  display: none;
   flex: 1 1;
   overflow-y: hidden;
   flex-direction: column;
   background-color: var(--content-bg);
   color: var(--content-text);
+  
+  @apply md:flex;
 }
 
+.preview.show {
+  display: flex;
+}
 .markdown {
   flex: 1 1;
   padding: 1rem;

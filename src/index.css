@@ -32,9 +32,12 @@ body.theme-dark {
 
 .body {
   font-family: Roboto, sans-serif;
-  overflow: hidden;
 }
 
+.file-icon {
+  color: var(--c-light-gray);
+  font-size: 1.5rem;
+}
 /** For header of editor and preview **/
 .markdown-header {
   display: flex;

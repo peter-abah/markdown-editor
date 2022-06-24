@@ -5,8 +5,8 @@ import {
    FaTrashAlt as DeleteIcon,
    FaTimes as CloseIcon,
    FaBars as OpenIcon,
-   FaFile as FileIcon
 } from 'react-icons/fa';
+import { MdOutlineDescription as FileIcon } from 'react-icons/md';
 
 import AccentBtn from '../AccentButton';
 import { Document } from '@/types';
@@ -33,8 +33,16 @@ const Header = (props: Props) => {
         <MenuIcon className="text-2xl" />
       </button>
       <div className='header__container'>
-        {doc && 
-          <input value={doc.name} onChange={updateName} />
+        <h1 className='header-title'>MARKDOWN</h1>
+        {doc &&
+          <div className='flex items-center'>
+   
+            <FileIcon className='file-icon mr-2' />
+            <div className='flex flex-col'>
+              <label className='doc-title-label' htmlFor='name-input'>Document Name</label>
+              <input id='name-input' value={doc.name} onChange={updateName} />
+            </div>
+          </div>
         }
  
         <div className="header__btns">
@@ -42,8 +50,12 @@ const Header = (props: Props) => {
             <DeleteIcon className='text-xl' />
           </button>
     
-          <AccentBtn onClick={handleSave}>
+          <AccentBtn
+            className='flex items-center gap-2'
+            onClick={handleSave}
+          >
             <SaveIcon className='text-xl' />
+            <span className='hidden md:block'>Save Changes</span>
           </AccentBtn>
         </div>
       </div>
