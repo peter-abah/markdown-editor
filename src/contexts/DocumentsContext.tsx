@@ -6,6 +6,7 @@ import React, {
 
 import { nanoid } from 'nanoid';
 import { Document } from '@/types';
+import { useLocalStorage } from 'usehooks-ts';
 import defaultDocs from './data.json';
 
 export interface DocumentsContextInterface {
@@ -24,7 +25,7 @@ interface Props {
 };
 
 const DocumentsProvider = ({ children }: Props) => {
-  const [docs, setDocs] = useState<Document[]>(defaultDocs);
+  const [docs, setDocs] = useLocalStorage<Document[]>('docs', defaultDocs);
 
   // To keep track of document displayed on screen
   const currentId = docs[0]?.id || null;
