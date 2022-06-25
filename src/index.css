@@ -38,6 +38,7 @@ body.theme-dark {
   color: var(--c-light-gray);
   font-size: 1.5rem;
 }
+
 /** For header of editor and preview **/
 .markdown-header {
   display: flex;
@@ -51,4 +52,33 @@ body.theme-dark {
   background-color: var(--c-dark-gray-1);
   color: var(--c-light-gray);
   color: #fff;
+}
+
+::-webkit-scrollbar {
+	height: 8px;
+	width: 8px;
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--c-orange);
+	-webkit-border-radius: 1ex;
+	-webkit-box-shadow: none;
+	border-radius: 1ex;
+	box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }

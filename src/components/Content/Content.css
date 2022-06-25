@@ -4,6 +4,8 @@
   height: 100vh;
   transition: transform 300ms ease-out;
   background-color: var(--c-dark-gray-2);
+  scrollbar-color: var(--c-orange) transparent;
+  scrollbar-width: thin;
 }
 
 .content.content--menu-open {
