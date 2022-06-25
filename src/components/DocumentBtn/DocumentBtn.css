@@ -17,14 +17,10 @@
   color: var(--c-light-gray);
 }
 
-.doc-btn__name: {
-  color: var(--c-orange);
-}
-
 .doc-btn.active .doc-btn__name {
   color: var(--c-orange);
 }
 
-.doc-btn:last {
+.doc-btn:last-child {
   margin-bottom: 0;
 }

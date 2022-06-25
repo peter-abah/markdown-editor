@@ -70,7 +70,7 @@ const Content = () => {
             onChange={updateContent}
           />
         }
-        <div className='separator' />
+
         <Preview
           content={content}
           showView={showPreview}
