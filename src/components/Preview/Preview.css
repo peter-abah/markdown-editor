@@ -1,7 +1,6 @@
 .preview {
   display: none;
   flex: 1 1;
-  overflow-y: hidden;
   flex-direction: column;
   background-color: var(--content-bg);
   color: var(--content-text);

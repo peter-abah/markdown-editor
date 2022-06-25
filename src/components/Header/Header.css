@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  flex-shrink: 0;
   color: #fff;
   max-width: 100%;
   overflow: hidden;

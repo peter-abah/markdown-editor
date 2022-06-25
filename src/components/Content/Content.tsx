@@ -26,11 +26,11 @@ const Content = () => {
     setContent(e.currentTarget.value);
   };
   
-  const updateName = (e: ChangeEvent<HTMLInputElement>) => {
-    if (currentDoc == null || e.target.value === '')
+  const updateName = (name: string) => {
+    if (currentDoc == null || name === '')
       return;
 
-    updateDoc({...currentDoc, name: e.target.value});
+    updateDoc({...currentDoc, name });
   };
   
   const onSave = () => {

@@ -19,7 +19,7 @@ const DocumentBtn = ({doc, isActive, ...btnProps}: Props) => {
         {...btnProps}
       >
         <FileIcon className='file-icon mr-2' />
-        <div className='flex flex-col'>
+        <div className='flex flex-col items-start'>
           <span className="doc-btn__date">{formattedDate}</span>
           <span className="doc-btn__name">{doc.name}</span>
         </div>

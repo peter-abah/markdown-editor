@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { useAppContext } from '@/contexts/AppContext';
 import {
    FaRegSave as SaveIcon,
@@ -15,13 +15,29 @@ import './Header.css';
 interface Props {
   handleSave: () => void;
   handleDelete: () => void;
-  updateName: (e: ChangeEvent<HTMLInputElement>) => void;
+  updateName: (name: string) => void;
   doc: Document | null;
 }
 
 const Header = (props: Props) => {
   const { isMenuOpen, toggleMenu } = useAppContext();
   const { doc, handleSave, handleDelete, updateName } = props;
+  
+  const [docName, setDocName] = useState(doc?.name || '');
+  
+  useEffect(() => {
+    // Reset name when document changes
+    setDocName(doc?.name || '');
+  }, [doc?.id]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setDocName(value);
+    
+    if (value != null) {
+      updateName(value);
+    }
+  };
 
   const MenuIcon = isMenuOpen ? CloseIcon : OpenIcon;
   return (
@@ -40,7 +56,7 @@ const Header = (props: Props) => {
             <FileIcon className='file-icon mr-2' />
             <div className='flex flex-col'>
               <label className='doc-title-label' htmlFor='name-input'>Document Name</label>
-              <input id='name-input' value={doc.name} onChange={updateName} />
+              <input id='name-input' value={docName} onChange={handleChange} />
             </div>
           </div>
         }
